@@ -26,10 +26,6 @@ At this point, I have a release process but I'm not documenting the changes. The
 
 As cangulo.nuke.releasecreator is already using the commit messages for calculating the next version, I created ___cangulo.changelog___ solution to list them in the two places mentioned before.
 
-:::info
-For the rest of the article I'm going to focus only in updating the changelog. I will talk about creating the release notes using cangulo.changelog in the [next post](./2-cangulo.changelog-release-notes).
-:::
-
 Maybe you would say, okay, why do you need a custom solution? Why don't you do it in the GH Action itself or in the _cangulo.nuke.releasecreator_ project? Well, when I started working on this I realize it was not so simple, here is what I took into account:
 
 -   The Changelog is a Markdown (MD) file, so adding the changes is not directly appending text, we should format.
@@ -149,11 +145,6 @@ I also would like to accept non conventional commits. The only difference would 
 </details>
   
 :::
-
-
-## Final notes
-
-In order to avoid making this post longer, I keep the implementation details for the next article. So far I have explained the why I created this project and how I use it.
 
 
 <AboutMePostArea/>

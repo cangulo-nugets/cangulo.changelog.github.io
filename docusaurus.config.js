@@ -7,8 +7,8 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'Carlos Angulo',
-  url: 'https://cangulo.changelog.github.io',
-  baseUrl: '/',
+  url: 'https://cangulo-nugets.github.io',
+  baseUrl: '/cangulo.changelog.github.io/',
   organizationName: 'cangulo',
   projectName: 'cangulo.changelog.github.io',
   trailingSlash: false,
@@ -74,7 +74,7 @@ const config = {
         items: [
           { to: '/docs', label: 'Docs', position: 'left' },
           { to: '/blog', label: 'Blog', position: 'left' },
-          { to: '/about', label: 'About', position: 'left' },
+          { to: '/about', label: 'Author', position: 'left' },
           {
             href: 'https://github.com/cangulo',
             label: 'GitHub',
@@ -96,7 +96,6 @@ const config = {
             items: [
               { label: 'LinkedIn', href: 'https://www.linkedin.com/in/angulomascarell/' },
               { label: 'Twitter', href: 'https://twitter.com/angulomascarell' },
-              { label: 'RSS', to: '/rss' },
             ],
           }
         ],
