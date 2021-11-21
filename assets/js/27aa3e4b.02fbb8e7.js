@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkcangulo_github_io=self.webpackChunkcangulo_github_io||[]).push([[437],{6517:function(g){g.exports=JSON.parse('{"allTagsPath":"/cangulo.changelog.github.io/blog/tags","slug":"/cangulo.changelog.github.io/blog/tags/productivity","name":"productivity","count":1,"permalink":"/cangulo.changelog.github.io/blog/tags/productivity"}')}}]);

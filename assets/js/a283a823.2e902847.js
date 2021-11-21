@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkcangulo_github_io=self.webpackChunkcangulo_github_io||[]).push([[110],{372:function(g){g.exports=JSON.parse('{"allTagsPath":"/cangulo.changelog.github.io/blog/tags","slug":"/cangulo.changelog.github.io/blog/tags/windows-10","name":"windows10","count":1,"permalink":"/cangulo.changelog.github.io/blog/tags/windows-10"}')}}]);
