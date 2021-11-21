@@ -5,8 +5,8 @@ on:
     branches: [main]
 
 # BRANCHES STRUCTURE
-# main    -> contains the development
-# gh-page -> contains the page src
+# main    -> development page
+# gh-page -> contains the page built, use to load the web site
 
 jobs:
   create-artifact:
