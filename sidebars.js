@@ -3,7 +3,7 @@ const sidebars = {
   tutorialSidebar: [
     'idea',
     'implementation',
-    'register-the-requires-services',
+    'register-the-services',
     {
       type: 'category',
       label: 'How to use it?',
@@ -11,7 +11,8 @@ const sidebars = {
         '4a-how-to-update-the-changelog',
         '4b-how-to-create-release-notes'
       ]
-    }
+    },
+    'show-cases'
   ],
 };
 

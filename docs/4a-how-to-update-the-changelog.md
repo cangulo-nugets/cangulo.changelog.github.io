@@ -23,10 +23,10 @@ changelogBuilder.Build(nextVersion, commitMsgs, changelogPath);
   <summary>IChangelogBuilder Definition</summary>
 
 ```csharp
- public interface IChangelogBuilder
- {
-     void Build(string version, string[] changes, string path);
- }
+public interface IChangelogBuilder
+{
+  void Build(string version, string[] changes, string path);
+}
 ```
 
 <Caption label="Definition at cangulo.changelog" linkIsRelative="false"  link="https://github.com/cangulo-nugets/cangulo.changelog/blob/v0.0.8/src/cangulo.changelog/Builders/ChangelogBuilder.cs" />

@@ -1,31 +1,41 @@
 ---
-id: greeting
-title: Hello
+title: cangulo.changelog docs
 slug: /
 ---
 
-## Hello from Docusaurus
+import AboutMePostArea from '/src/mdx_components/aboutme_area.mdx'
+import ShareCard from '/src/components/blog/share.js'
+import Comments from '/src/components/blog/comments.js'
 
-Are you ready to create the documentation site for your open source project?
+# cangulo.changelog
 
-### Headers
+## Introduction
 
-will show up on the table of contents on the upper right
+Hi! This web site contains the documentation related to my personal project cangulo.changelog.
 
-So that your users will know what this page is all about without scrolling down or even without reading too much.
+Let me add here the most important links:
 
-### Only h2 and h3 will be in the toc by default.
+* Repository: [cangulo.changelog repository](https://github.com/cangulo-nugets/cangulo.changelog)
+* NuGet Package: [cangulo.changelog](https://www.nuget.org/packages/cangulo.changelog/)
+* The problem I want to solve: [link](./docs#the-problem-i-want-to-solve)
+* Implementation details: [link](./docs/implementation)
+* How to use it?
+  * [Register the services](./docs/register-the-services)
+  * [How to update the changelog](./docs/4a-how-to-update-the-changelog)
+  * [How to create the release notes](./docs/4b-how-to-create-release-notes)
+* [Show Cases](./docs/show-cases)
 
-You can configure the TOC heading levels either per-document or in the theme configuration.
 
-The headers are well-spaced so that the hierarchy is clear.
+## Other Projects
 
-- lists will help you
-- present the key points
-- that you want your users to remember
-  - and you may nest them
-    - multiple times
+You can check my other projects [here](https://cangulo.github.io/projects).
 
-### Custom id headers {#custom-id}
+<AboutMePostArea/>
 
-With `{#custom-id}` syntax you can set your own header id.
+<ShareCard 
+  slug="/" 
+  title="cangulo.changelog docs" 
+  tags={["cangulo.changelog", "changelog", "nuget-package"]} />
+  
+<Comments
+  slug="/"  />
