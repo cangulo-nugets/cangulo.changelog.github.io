@@ -3,7 +3,7 @@ const sidebars = {
   tutorialSidebar: [
     'idea',
     'implementation',
-    'register-the-services',
+    'registering-the-services',
     {
       type: 'category',
       label: 'How to use it?',

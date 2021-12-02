@@ -1,5 +1,5 @@
 ---
-title: Register the services
+title: Registering the services
 ---
 
 import ShareCard from '/src/components/blog/share.js'
@@ -72,3 +72,8 @@ public enum CommitsMode
 </details>
   
 :::
+
+<ShareCard 
+  slug="docs/registering-the-services"
+  title="cangulo.changelog - Registering the services" 
+  tags={["nuke", "cicd", "cangulo.changelog","conventional_commits", "changelog"]} />

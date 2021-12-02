@@ -32,3 +32,8 @@ public interface IChangelogBuilder
 <Caption label="Definition at cangulo.changelog" linkIsRelative="false"  link="https://github.com/cangulo-nugets/cangulo.changelog/blob/v0.0.8/src/cangulo.changelog/Builders/ChangelogBuilder.cs" />
 
 </details>
+
+<ShareCard 
+  slug="docs/4a-how-to-update-the-changelog" 
+  title="cangulo.changelog - How to update the changelog" 
+  tags={["nuke", "cicd", "cangulo.changelog","conventional_commits", "changelog"]} />

@@ -18,5 +18,22 @@
         "titleBar.inactiveBackground": "#49a34399",
         "titleBar.inactiveForeground": "#e7e7e799"
     },
-    "peacock.color": "#49a343"
+    "peacock.color": "#49a343",
+    "grammarly.overrides": [
+        {
+            "files": [
+                "**/docs/2-implementation.md"
+            ],
+            "config": {
+                "audience": "knowledgeable",
+                "dialect": "british",
+                "domain": "general",
+                "emotions": [],
+                "goals": [
+                    "inform",
+                    "describe"
+                ]
+            }
+        }
+    ]
 }

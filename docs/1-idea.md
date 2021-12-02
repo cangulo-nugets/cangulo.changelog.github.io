@@ -15,26 +15,43 @@ import TabItem from '@theme/TabItem'
 
 ## The problem I want to solve
 
-In my GitHub repos I am using the dotnet project [cangulo.nuke.releasecreator](https://github.com/cangulo-nuke/cangulo.nuke.releasecreator) for releasing a new version every time I merge a PR to the main branch. For that, I have to follow the next conventions:
+Let me introduce a few conventions I follow on my GH projects:
 
-* The App follows [Semantic Versioning.](https://semver.org)
-* All PR contain [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) which set the release to be created (_major_, _minor_ or _fix_).
+* My Dotnet project [cangulo.nuke.releasecreator](https://github.com/cangulo-nuke/cangulo.nuke.releasecreator) releases a new version every time I merge a PR to the main branch. It is called from specific GH Actions per project.
+* My projects follow [Semantic Versioning.](https://semver.org)
+* All PR contain [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/), on those the release to be created (_major_, _minor_ or _fix_) is set.
 
-At this point, I have a release process but I'm not documenting the changes. There are two places where I should post them:
-1. The release notes
-2. The changelog
+The problem is that I'm not documenting the changes anywhere. 
 
-As cangulo.nuke.releasecreator is already using the commit messages for calculating the next version, I created ___cangulo.changelog___ solution to list them in the two places mentioned before.
+## Definitions
 
-Maybe you would say, okay, why do you need a custom solution? Why don't you do it in the GH Action itself or in the _cangulo.nuke.releasecreator_ project? Well, when I started working on this I realize it was not so simple, here is what I took into account:
+Allow me to set some definitions:
 
--   The Changelog is a Markdown (MD) file, so adding the changes is not directly appending text, we should format.
--   To make the Changelog more formal we should add other elements as:
-	-   Header containing the version number
-	-   A Date to know when that release was created (okay, this is a _nice to have_ 😁)
-	-   Future elements as contributors, PR link, Link to the tests reports executed. Yes, I'm going too far, I will keep this for future versions 😄
+* The changes are simply the commit messages, excluding any commit type as _major, fix, docs_. See [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/). 
+* The changes will be stored here:
+  1. The GH release notes. Those are written in markdown (MD).
+  2. The changelog, we will consider it as a Md file named: `changelog.md`
 
-Although MD is easy to write, it requires to format the text when creating elements (`#` for headers `* ` for list item, etc). So, to avoid doing that logic in shell scripts or mixing domains (release process and changelog update), I decided to implement this in a separate repository, the [cangulo.changelog repository](https://github.com/cangulo-nugets/cangulo.changelog). Let me give an example of the input and output expected.
+## Approach
+
+I decided to implement a NuGet package to be consumed by _cangulo.nuke.releasecreator_. Here are the main reasons:
+
+* Although MD is easy to write, it requires some formatting when creating elements (`#` for headers,  `* ` for list item, etc). 
+* To code a solution based on shell scripts seems to be an option, but the release notes should be defined in _cangulo.nuke.releasecreator_. This is because the release is created through the GH API there.
+* To implement a solution directly in _cangulo.nuke.releasecreator_ mixes domains. Changes in the changelog format should not affect the release process. 
+
+The nuget package is: [cangulo.changelog](https://www.nuget.org/packages/cangulo.changelog/)
+
+I have the next features in mind:
+- Group changes per commit type
+- Every change should be listed with a bullet point
+- Every Release will be written as an MD Header (`#`)
+- Every release should have its date
+- Future elements as contributors, PR link, Link to the tests reports executed. Yes, I'm going too far, I will keep this for future versions 😄
+
+## Examples
+
+Let me give an example of the input and output expected.
 
 ### Input: Commits from a merged PR
 The release 0.0.2 is created after merging a PR with the next commits list:
@@ -150,9 +167,6 @@ I also would like to accept non conventional commits. The only difference would 
 <AboutMePostArea/>
 
 <ShareCard 
-  slug="projects/1-cangulo.changelog-idea-and-how-to-use" 
+  slug="docs" 
   title="cangulo.changelog - Idea and how I use it" 
   tags={["nuke", "cicd", "cangulo.changelog","conventional_commits", "changelog"]} />
-  
-<Comments
-  slug="projects/1-cangulo.changelog-idea-and-how-to-use"  />

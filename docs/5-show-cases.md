@@ -1,5 +1,5 @@
 ---
-title: Showcase
+title: Showcases
 ---
 
 import ShareCard from '/src/components/blog/share.js'
@@ -17,3 +17,8 @@ Next are some changelogs I build using this solution.
 3.  [cangulo.nuke.releasecreator Changelog](https://github.com/cangulo-nuke/cangulo.nuke.releasecreator/blob/main/CHANGELOG.md)
 
 In the release process of those repositories, [cangulo.nuke.releasecreator](https://github.com/cangulo-nuke/cangulo.nuke.releasecreator) use [cangulo.changelog](https://www.nuget.org/packages/cangulo.changelog/) to update the changelog and create the release notes.
+
+<ShareCard 
+  slug="docs/show-cases" 
+  title="cangulo.changelog - Showcases" 
+  tags={["nuke", "cicd", "cangulo.changelog","conventional_commits", "changelog"]} />

@@ -13,3 +13,8 @@ import TabItem from '@theme/TabItem'
 How to create release notes
 
 Hola
+
+<ShareCard 
+  slug="docs/4b-how-to-create-release-notes" 
+  title="cangulo.changelog - How to create release notes"
+  tags={["nuke", "cicd", "cangulo.changelog","conventional_commits", "changelog"]} />
