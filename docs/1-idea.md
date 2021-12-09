@@ -6,8 +6,7 @@ authors: cangulo
 ---
 
 import ShareCard from '/src/components/blog/share.js'
-import Caption from '/src/components/blog/caption.jsx'
-import Comments from '/src/components/blog/comments.js'
+import Caption from '/src/components/blog/caption.js'
 import AboutMePostArea from '/src/mdx_components/aboutme_area.mdx'
 import BrowserWindow from '/src/components/BrowserWindow'
 import Tabs from '@theme/Tabs'
@@ -19,30 +18,28 @@ Let me introduce a few conventions I follow on my GH projects:
 
 * My Dotnet project [cangulo.nuke.releasecreator](https://github.com/cangulo-nuke/cangulo.nuke.releasecreator) releases a new version every time I merge a PR to the main branch. It is called from specific GH Actions per project.
 * My projects follow [Semantic Versioning.](https://semver.org)
-* All PR contain [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/), on those the release to be created (_major_, _minor_ or _fix_) is set.
+* All PR contain [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/), they set the release type (_major_, _minor_ or _fix_).
 
-The problem is that I'm not documenting the changes anywhere. 
+At this point, the problem I have is _cangulo.nuke.releasecreator_ doesn't document the changes.
 
 ## Definitions
-
-Allow me to set some definitions:
 
 * The changes are simply the commit messages, excluding any commit type as _major, fix, docs_. See [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/). 
 * The changes will be stored here:
   1. The GH release notes. Those are written in markdown (MD).
-  2. The changelog, we will consider it as a Md file named: `changelog.md`
+  2. The changelog, is a MD file named: `changelog.md` (simple, right?)
 
 ## Approach
 
 I decided to implement a NuGet package to be consumed by _cangulo.nuke.releasecreator_. Here are the main reasons:
 
-* Although MD is easy to write, it requires some formatting when creating elements (`#` for headers,  `* ` for list item, etc). 
+* Although MD is easy to write, it requires some formatting when creating elements (`#` for headers,  `* ` for lists, etc). 
 * To code a solution based on shell scripts seems to be an option, but the release notes should be defined in _cangulo.nuke.releasecreator_. This is because the release is created through the GH API there.
-* To implement a solution directly in _cangulo.nuke.releasecreator_ mixes domains. Changes in the changelog format should not affect the release process. 
+* Implementing a solution directly in _cangulo.nuke.releasecreator_ would mix domains. Changes in the changelog format should not affect the release process. 
 
 The nuget package is: [cangulo.changelog](https://www.nuget.org/packages/cangulo.changelog/)
 
-I have the next features in mind:
+I have the following features in mind:
 - Group changes per commit type
 - Every change should be listed with a bullet point
 - Every Release will be written as an MD Header (`#`)

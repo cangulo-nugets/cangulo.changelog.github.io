@@ -16,8 +16,6 @@ import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 
 const ShareCard = ({ slug, title, tags }) => {
     const { siteConfig } = useDocusaurusContext();
-
-
     const fullUrl = `${siteConfig.url}${siteConfig.baseUrl}${slug}`
 
     return <div>

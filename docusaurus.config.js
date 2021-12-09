@@ -16,6 +16,10 @@ const config = {
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
 
+  customFields: {
+    rawGitUrl: 'https://raw.githubusercontent.com/cangulo-nugets/cangulo.changelog.github.io/main/blog/'
+  },
+
   presets: [
     [
       '@docusaurus/preset-classic',
@@ -38,37 +42,11 @@ const config = {
     ],
   ],
 
-  // plugins: [
-
-  //   [
-  //     '@docusaurus/plugin-content-docs',
-  //     /** @type {import('@docusaurus/plugin-content-docs').Options} */
-  //     ()
-  //   ],
-  // [
-  //   '@docusaurus/plugin-content-blog',
-  //   /** @type {import('@docusaurus/plugin-content-blog').Options} */
-  //   ({
-  //     id: 'posts',
-  //     path: 'blog/posts',
-  //     showReadingTime: true,
-  //     authorsMapPath: '../authors.yml',
-  //     blogTitle: 'cangulo.changelog Posts',
-  //     blogDescription: 'General Publications I do regarding different subjects as devops or programming 🙂',
-  //     editUrl: 'https://github.com/cangulo/cangulo.changelog.github.io/blob/main',
-  //     feedOptions: {
-  //       title: 'Carlos Angulo Posts',
-  //       language: 'en',
-  //       description: 'Here you can the general publications I do regarding different subjects as devops or programming 🙂'
-  //     },
-  //     remarkPlugins: [require('mdx-mermaid')]
-  //   })
-  // ],
-
-
-
   themeConfig:
     ({
+      colorMode: {
+        defaultMode: 'dark',
+      },
       navbar: {
         title: 'Home',
         items: [
