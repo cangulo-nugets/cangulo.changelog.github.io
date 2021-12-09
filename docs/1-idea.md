@@ -18,14 +18,16 @@ Let me introduce a few conventions I follow on my GH projects:
 * My projects follow [Semantic Versioning.](https://semver.org)
 * All PR contain [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/), they set the release type (_major_, _minor_ or _fix_).
 
-At this point, the problem I have is _cangulo.nuke.releasecreator_ doesn't document the changes.
+At this point, the problem I have is _cangulo.nuke.releasecreator_ doesn't document the changes introduced on every release. 
 
-## Definitions
 
-* The changes are simply the commit messages, excluding any commit type as _major, fix, docs_. See [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/). 
-* The changes will be stored here:
-  1. The GH release notes. Those are written in markdown (MD).
-  2. The changelog, is a MD file named: `changelog.md` (simple, right?)
+### Changes
+
+I consider any commit message as `fix: Solved bug in the TransactionsController` a change introduced. My goal is to have them in:
+  1. The GH release notes on every version released, [example](https://github.com/fluentassertions/fluentassertions/releases/tag/6.2.0).
+  2. The Changelog, this a Markdown file where all the changes are listed and grouped per version. [example](https://github.com/cangulo-nugets/cangulo.changelog/blob/main/CHANGELOG.md)
+     1. File name: `changelog.md` (simple, right?)
+     2. Order: recent notes at the top
 
 ## Approach
 
@@ -50,7 +52,7 @@ Let me give an example of the input and output expected.
 
 ### Input: Commits from a merged PR
 The release 0.0.2 is created after merging a PR with the next commits list:
--   fix: Solved bug in the TransactionsController that makes transactions fail
+-   fix: Solved bug in the TransactionsController
 -   refactor: Simplified Transactions Repository
 -   docs: Updated docs/examples
 -   feat: Implemented new DocumentsController
@@ -70,7 +72,7 @@ Next is the changelog section I would like to have for version 0.0.2:
 2021-11-20
 
 fix:
--   Solved bug in the TransactionsController that makes transactions fail
+-   Solved bug in the TransactionsController
 
 refactor:
 -   Simplified Transactions Repository
@@ -91,7 +93,7 @@ features:
 2021-11-20
 
 fix:
--   Solved bug in the TransactionsController that makes transactions fail
+-   Solved bug in the TransactionsController
 
 refactor:
 -   Simplified Transactions Repository
@@ -129,7 +131,7 @@ I also would like to accept non conventional commits. The only difference would 
 
 2021-11-20
 
-* fix: Solved bug in the TransactionsController that makes transactions fail
+* fix: Solved bug in the TransactionsController
 * refactor: Simplified Transactions Repository
 * docs: Updated docs/examples
 * feat: Implemented new DocumentsController
@@ -143,7 +145,7 @@ I also would like to accept non conventional commits. The only difference would 
 
 2021-11-20
 
-* fix: Solved bug in the TransactionsController that makes transactions fail
+* fix: Solved bug in the TransactionsController
 * refactor: Simplified Transactions Repository
 * docs: Updated docs/examples
 * feat: Implemented new DocumentsController

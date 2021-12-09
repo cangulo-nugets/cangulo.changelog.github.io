@@ -21,7 +21,7 @@ I have defined an interface for each goal:
 
 
 :::info Interactive Diagram 😁
-Click on the next diagram classes and interfaces to open its definition
+All diagrams have links to the classes and interfaces code, just click on them!
 ::: 
 
 ```mermaid
@@ -32,26 +32,26 @@ Click on the next diagram classes and interfaces to open its definition
 
       class IChangelogBuilder {
         <<interface>>
-        +Build(string version, string[] changes, string path)
+        +Build(string version, string[] changes, string path) void
       }
       
       class ChangelogBuilder{
         -readonly IChangelogVersionNotesBuilder _changelogVersionNotesBuilder
-        +Build(string version, string[] changes, string path)
-        -GetCurrentContent(string path)
-        -AppendContent(string path, string content)
-        -OverwriteContent(string path, string content)
+        +Build(string version, string[] changes, string path) void
+        -GetCurrentContent(string path) string
+        -AppendContent(string path, string content) void
+        -OverwriteContent(string path, string content) void
       }
 
       class IReleaseNotesBuilder {
         <<interface>>
-        +string Build(string[] changes)
+        +Build(string[] changes) string 
       }
 
 
       class ReleaseNotesBuilder {
         -readonly IChangesListAreaBuilder _changesListAreaBuilder
-        +string Build(string[] changes)
+        +Build(string[] changes) string 
       }
 
       %% Links
@@ -65,67 +65,93 @@ Click on the next diagram classes and interfaces to open its definition
   <CaptionDocusaurus label="Main interfaces" />
 </i>
 
-In order to have reusable classes between both processes. I implemented the following classes for the MD operations:
+Then, in order to have reusable classes between both processes. I implemented the following classes:
 
 * `IChangelogVersionNotesBuilder`: 
   * Class that builds a Changelog Section with the changes provided.
-  * Called by the IChangelogBuilder. 
-  * Use all the MD classes to build the Changelog.
-* `IChangesListAreaBuilder`: 
-  * Receives a list of changes (commit messages) and creates a list in MD format. 
-  * Called by IChangelogVersionNotesBuilder and IReleaseNotesBuilder.
-
-As I want to be able to support both commits types (Conventional and Non Conventional), I have two implementations for the IChangesListAreaBuilder:
-
-* `ChangesAreaBuilderForConventionalCommits`
-  * It groups the commits received by type.
-* `ChangesAreaBuilderForNonConventionalCommits`
-  * It simply lists the commits received
+    * Add two placeholder to divide sections: `START-VERSION:` and `END-VERSION:`
+    * Add the version number as a Header
+    * Add the current date
+    * Append the changes formatted by `IChangesListAreaBuilder`
+  * Called by the `IChangelogBuilder`. 
 
 ```mermaid
 
  classDiagram
       IChangelogVersionNotesBuilder <|-- ChangelogVersionNotesBuilder
-      IChangesListAreaBuilder <|-- ChangesAreaBuilderForConventionalCommits
-      IChangesListAreaBuilder <|-- ChangesAreaBuilderForNonConventionalCommits
 
       class IChangelogVersionNotesBuilder {
         <<interface>>
-        +string Build(string version, string[] changes)
+        +Build(string version, string[] changes) string
       }
       
       class ChangelogVersionNotesBuilder{
         -readonly IChangesListAreaBuilder _changesListAreaBuilder
-        +string Build(string version, string[] changes)
+        +Build(string version, string[] changes) string 
       }
+
+
+      %% Links
+      click IChangelogVersionNotesBuilder href "https://github.com/cangulo-nugets/cangulo.changelog/blob/main/src/cangulo.changelog/Builders/ChangelogVersionNotesBuilder.cs"
+      click ChangelogVersionNotesBuilder href "https://github.com/cangulo-nugets/cangulo.changelog/blob/main/src/cangulo.changelog/Builders/ChangelogVersionNotesBuilder.cs"
+
+```
+
+* `IChangesListAreaBuilder`: 
+  * Receives a list of changes (commit messages) and creates a list in MD format. 
+  * Called directly by `IReleaseNotesBuilder`. Also used by `IChangelogVersionNotesBuilder`.
+
+As I want to be able to support both commits types (Conventional and Non-Conventional), I have two implementations for the IChangesListAreaBuilder:
+
+* `ChangesAreaBuilderForConventionalCommits`
+  * It groups the commits received by type.
+* `ChangesAreaBuilderForNonConventionalCommits`
+  * It simply lists the commits received
+```mermaid
+
+ classDiagram
+      IChangesListAreaBuilder <|-- ChangesAreaBuilderForConventionalCommits
+      IChangesListAreaBuilder <|-- ChangesAreaBuilderForNonConventionalCommits
 
       class IChangesListAreaBuilder {
         <<interface>>
-        +string Build(string[] changes)
+        +Build(string[] changes) string
       }
 
 
       class ChangesAreaBuilderForConventionalCommits {
         -readonly ICoventionalCommitParser _conventionalCommitParser
         -ChangelogSettings _changelogSettings
-        +string Build(string[] changes)
+        +Build(string[] changes) string
       }
 
       class ChangesAreaBuilderForNonConventionalCommits {
-        +string Build(string[] changes)
+        +Build(string[] changes) string
       }
 
       %% Links
-      click IChangelogVersionNotesBuilder href "https://github.com/cangulo-nugets/cangulo.changelog/blob/main/src/cangulo.changelog/Builders/ChangelogVersionNotesBuilder.cs"
-      click ChangelogVersionNotesBuilder href "https://github.com/cangulo-nugets/cangulo.changelog/blob/main/src/cangulo.changelog/Builders/ChangelogVersionNotesBuilder.cs"
       click IChangesListAreaBuilder href "https://github.com/cangulo-nugets/cangulo.changelog/blob/main/src/cangulo.changelog/Builders/IChangesListAreaBuilder.cs"
       click ChangesAreaBuilderForConventionalCommits href "https://github.com/cangulo-nugets/cangulo.changelog/blob/main/src/cangulo.changelog/Builders/ConventionalCommits/ChangesAreaBuilderForConventionalCommits.cs"
       click ChangesAreaBuilderForNonConventionalCommits href "https://github.com/cangulo-nugets/cangulo.changelog/blob/main/src/cangulo.changelog/Builders/NonConventionalCommits/ChangesAreaBuilderForNonConventionalCommits.cs"
 
 ```
-<i>
-  <CaptionDocusaurus label="Main interfaces" />
-</i>
+
+It is worth mentioning that I have created the static class `MarkdownBuilder` for formatting text into MD:
+
+```mermaid
+
+ classDiagram
+      class MarkdownBuilder {
+        <<static>>
+        +Comment(string content)$ string 
+        +Title(string title, TitleLevel titleLevel)$ string 
+        +ListItem(string item, ListItemLevel listItemLevel)$ string 
+      }
+
+      %% Links
+      click MarkdownBuilder href "https://github.com/cangulo-nugets/cangulo.changelog/blob/main/src/cangulo.changelog/markdown/MarkdownBuilder.cs"
+
+```
 
 <!-- TODO: Add two tabs with the different output -->
 <!-- TODO: Add two tabs with the different output -->
