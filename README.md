@@ -2,6 +2,6 @@
 
 hosted in GitHub Pages:
 
-https://cangulo.changelog.github.io
+https://cangulo-nugets.github.io/cangulo.changelog.github.io/docs
 
 Built using **Docusaurus**
