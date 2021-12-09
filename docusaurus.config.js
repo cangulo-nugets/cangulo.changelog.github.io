@@ -36,10 +36,13 @@ const config = {
           path: 'docs',
           showLastUpdateTime: true,
           showLastUpdateAuthor: true,
-          editUrl: ({ versionDocsDirPath, docPath }) =>
-            `https://github.com/cangulo/cangulo.changelog.github.io/blob/${versionDocsDirPath}/${docPath}`,
+          // editUrl: ({ versionDocsDirPath, docPath }) =>
+          //   `https://github.com/cangulo-nugets/cangulo.changelog.github.io/blob/${versionDocsDirPath}/${docPath}`,
           routeBasePath: '/docs',
-          sidebarPath: require.resolve('./sidebars.js')
+          sidebarPath: require.resolve('./sidebars.js'),
+          remarkPlugins: [
+            [require('mdx-mermaid'), { mermaid: { theme: 'dark' } }]
+          ]
         },
         blog: false,
       }),
@@ -55,7 +58,6 @@ const config = {
         title: 'Home',
         items: [
           { to: '/docs', label: 'Docs', position: 'left' },
-          // { to: '/blog', label: 'Blog', position: 'left' },
           { to: 'https://cangulo.github.io/about', label: 'Author', position: 'left' },
           {
             href: 'https://github.com/cangulo',
@@ -71,7 +73,6 @@ const config = {
           {
             items: [
               { label: 'Docs', to: '/docs' },
-              // { label: 'Blog', to: '/blog' },
             ],
           },
           {
