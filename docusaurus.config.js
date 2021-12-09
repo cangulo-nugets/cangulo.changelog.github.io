@@ -26,7 +26,10 @@ const config = {
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         theme: {
-          customCss: require.resolve('./src/css/custom.css'),
+          customCss: [
+            require.resolve('@cangulo-blog/components/dist/css/blog-styles.css'),
+            require.resolve('./src/css/custom.css')
+          ],
         },
         docs: {
           id: 'docs',
