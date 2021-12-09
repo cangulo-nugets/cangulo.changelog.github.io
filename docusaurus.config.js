@@ -32,6 +32,7 @@ const config = {
           id: 'docs',
           path: 'docs',
           showLastUpdateTime: true,
+          showLastUpdateAuthor: true,
           editUrl: ({ versionDocsDirPath, docPath }) =>
             `https://github.com/cangulo/cangulo.changelog.github.io/blob/${versionDocsDirPath}/${docPath}`,
           routeBasePath: '/docs',
@@ -52,7 +53,7 @@ const config = {
         items: [
           { to: '/docs', label: 'Docs', position: 'left' },
           // { to: '/blog', label: 'Blog', position: 'left' },
-          { to: '/about', label: 'Author', position: 'left' },
+          { to: 'https://cangulo.github.io/about', label: 'Author', position: 'left' },
           {
             href: 'https://github.com/cangulo',
             label: 'GitHub',

@@ -1,10 +1,9 @@
 ---
 title: Registering the services
+authors: cangulo
 ---
 
-import ShareCard from '/src/components/blog/share.js'
-import Caption from '/src/components/blog/caption.js'
-import AboutMePostArea from '/src/mdx_components/aboutme_area.mdx'
+import { CaptionDocusaurus, ShareDocusaurus } from '@cangulo-blog/components'
 import BrowserWindow from '/src/components/BrowserWindow'
 import Tabs from '@theme/Tabs'
 import TabItem from '@theme/TabItem'
@@ -23,7 +22,7 @@ public class Startup
     }
 }
 ```
-<Caption label="Example at cangulo.nuke.releasecreator" linkIsRelative={false}  link="https://github.com/cangulo-nuke/cangulo.nuke.releasecreator/blob/v0.0.1/src/cangulo.nuke.releasecreator/build.startup.cs#L27" />
+<CaptionDocusaurus label="Example at cangulo.nuke.releasecreator" linkIsRelative={false}  link="https://github.com/cangulo-nuke/cangulo.nuke.releasecreator/blob/v0.0.1/src/cangulo.nuke.releasecreator/build.startup.cs#L27" />
 
 The object passed is a `ChangelogSettings` instance. It sets the working mode (Conventional or Non-Conventional Commits) in the `CommitsMode` attribute. In case you want to go with the conventional ones, you have to provide the types in the `ConventionalCommitsSettings`. 
 ```csharp
@@ -43,7 +42,7 @@ public enum CommitsMode
   ConventionalCommits
 }
 ```
-<Caption label="Definition at cangulo.changelog" linkIsRelative={false}  link="https://github.com/cangulo-nugets/cangulo.changelog/blob/v0.0.8/src/cangulo.changelog/Models/ChangelogSettings.cs" />
+<CaptionDocusaurus label="Definition at cangulo.changelog" linkIsRelative={false}  link="https://github.com/cangulo-nugets/cangulo.changelog/blob/v0.0.8/src/cangulo.changelog/Models/ChangelogSettings.cs" />
 
 :::info Idea!
 
@@ -66,13 +65,15 @@ public enum CommitsMode
     }
 }
 ```
-<Caption label="Example at cangulo.nuke.releasecreator" linkIsRelative={false}  link="https://github.com/cangulo-nuke/cangulo.nuke.releasecreator/blob/v0.0.1/cicd/releaseSettings.json#L38" />
+<CaptionDocusaurus label="Example at cangulo.nuke.releasecreator" linkIsRelative={false}  link="https://github.com/cangulo-nuke/cangulo.nuke.releasecreator/blob/v0.0.1/cicd/releaseSettings.json#L38" />
 
 </details>
   
 :::
 
-<ShareCard 
+---
+
+<ShareDocusaurus 
   slug="docs/registering-the-services"
   title="cangulo.changelog - Registering the services" 
   tags={["nuke", "cicd", "cangulo.changelog","conventional_commits", "changelog"]} />

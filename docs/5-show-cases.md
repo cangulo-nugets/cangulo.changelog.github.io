@@ -1,10 +1,9 @@
 ---
 title: Showcases
+authors: cangulo
 ---
 
-import ShareCard from '/src/components/blog/share.js'
-import Caption from '/src/components/blog/caption.js'
-import AboutMePostArea from '/src/mdx_components/aboutme_area.mdx'
+import { CaptionDocusaurus, ShareDocusaurus } from '@cangulo-blog/components'
 import BrowserWindow from '/src/components/BrowserWindow'
 import Tabs from '@theme/Tabs'
 import TabItem from '@theme/TabItem'
@@ -17,7 +16,9 @@ Next are some changelogs I build using this solution.
 
 In the release process of those repositories, [cangulo.nuke.releasecreator](https://github.com/cangulo-nuke/cangulo.nuke.releasecreator) use [cangulo.changelog](https://www.nuget.org/packages/cangulo.changelog/) to update the changelog and create the release notes.
 
-<ShareCard 
+---
+
+<ShareDocusaurus
   slug="docs/show-cases" 
   title="cangulo.changelog - Showcases" 
   tags={["nuke", "cicd", "cangulo.changelog","conventional_commits", "changelog"]} />

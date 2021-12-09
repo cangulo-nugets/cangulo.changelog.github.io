@@ -1,10 +1,9 @@
 ---
 title: Implementation
+authors: cangulo
 ---
 
-import ShareCard from '/src/components/blog/share.js'
-import Caption from '/src/components/blog/caption.js'
-import AboutMePostArea from '/src/mdx_components/aboutme_area.mdx'
+import { ShareDocusaurus } from '@cangulo-blog/components'
 import BrowserWindow from '/src/components/BrowserWindow'
 import Tabs from '@theme/Tabs'
 import TabItem from '@theme/TabItem'
@@ -38,7 +37,9 @@ As I want to be able to support both commits types (Conventional and Non Convent
 <!-- TODO: Add two tabs with the different output -->
 
 
-<ShareCard 
+---
+
+<ShareDocusaurus 
   slug="docs/implementation" 
   title="cangulo.changelog - Idea and how I use it" 
   tags={["nuke", "cicd", "cangulo.changelog","conventional_commits", "changelog"]} />

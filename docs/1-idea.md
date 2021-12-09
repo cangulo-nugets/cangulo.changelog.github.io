@@ -5,9 +5,7 @@ date: 2021-11-26
 authors: cangulo
 ---
 
-import ShareCard from '/src/components/blog/share.js'
-import Caption from '/src/components/blog/caption.js'
-import AboutMePostArea from '/src/mdx_components/aboutme_area.mdx'
+import { ShareDocusaurus } from '@cangulo-blog/components'
 import BrowserWindow from '/src/components/BrowserWindow'
 import Tabs from '@theme/Tabs'
 import TabItem from '@theme/TabItem'
@@ -160,10 +158,9 @@ I also would like to accept non conventional commits. The only difference would 
   
 :::
 
+---
 
-<AboutMePostArea/>
-
-<ShareCard 
+<ShareDocusaurus
   slug="docs" 
   title="cangulo.changelog - Idea and how I use it" 
   tags={["nuke", "cicd", "cangulo.changelog","conventional_commits", "changelog"]} />
