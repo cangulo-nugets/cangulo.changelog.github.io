@@ -14,7 +14,7 @@
     "typecheck": "tsc"
   },
   "dependencies": {
-    "@cangulo-blog/components": "0.0.5-beta",
+    "@cangulo-blog/components": "0.0.8-beta",
     "@docusaurus/core": "2.0.0-beta.9",
     "@docusaurus/preset-classic": "2.0.0-beta.9",
     "@mdx-js/react": "^1.6.21",
@@ -29,6 +29,7 @@
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-share": "^4.4.0",
+    "remark-code-import": "^0.4.0",
     "url-loader": "^4.1.1"
   },
   "devDependencies": {

@@ -3,7 +3,18 @@
 
 const lightCodeTheme = require('prism-react-renderer/themes/github');
 const darkCodeTheme = require('prism-react-renderer/themes/dracula');
+const {
+  addJsxCode,
+  alignTableCenter } = require('@cangulo-blog/components/dist/remark-plugins');
 
+const commonImports = [
+  'import { CaptionDocusaurus, ShareDocusaurus } from \'@cangulo-blog/components\''
+]
+
+
+const jsxElementsEnding = [
+
+]
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'Carlos Angulo',
@@ -40,11 +51,44 @@ const config = {
           //   `https://github.com/cangulo-nugets/cangulo.changelog.github.io/blob/${versionDocsDirPath}/${docPath}`,
           routeBasePath: '/docs',
           sidebarPath: require.resolve('./sidebars.js'),
+          beforeDefaultRemarkPlugins: [
+            alignTableCenter,
+            [
+              addJsxCode, {
+                importStatement: commonImports,
+                position: 'start'
+              }
+            ]],
           remarkPlugins: [
-            [require('mdx-mermaid'), { mermaid: { theme: 'dark' } }]
+            require('mdx-mermaid'),
+            require('remark-code-import'),
+            [
+              addJsxCode, {
+                jsx: jsxElementsEnding
+              }
+            ]
           ]
         },
         blog: false,
+        pages: {
+          beforeDefaultRemarkPlugins: [
+            alignTableCenter,
+            [
+              addJsxCode, {
+                importStatement: commonImports,
+                position: 'start'
+              }
+            ]],
+          remarkPlugins: [
+            require('mdx-mermaid'),
+            require('remark-code-import'),
+            [
+              addJsxCode, {
+                jsx: jsxElementsEnding
+              }
+            ]
+          ]
+        }
       }),
     ],
   ],
